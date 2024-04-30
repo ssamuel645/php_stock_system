@@ -13,5 +13,9 @@ return [
         'id' => '0003',
         'name' => 'teste3',
         'price' => 'R$39,90'
+    ], [
+        'id' => '0004',
+        'name' => 'teste4',
+        'price' => 'R$199,90'
     ]
 ];

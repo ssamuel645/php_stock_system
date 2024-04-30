@@ -6,24 +6,32 @@ $url = isset($_GET['url']) ? $_GET['url'] : '/';
 
 if($url === '/') {
     //include '../templates/list.php';
-    require TEMPLATES . '/list.php';
+    require TEMPLATES . '/list.phtml';
 }
 
 if($url === '/produto') {
     $id = isset($_GET['id']) ? $_GET['id'] :'';
 
     if($id) {
-        foreach(PRODUCTS as $currentProduct) {
+        /* foreach(PRODUCTS as $currentProduct) {
             if($currentProduct['id'] == $id) {
                 $product = $currentProduct;
                 break;
             }
-        }
+        } */
+
+        $product = array_filter(PRODUCTS, function($product) use ($id) {
+            return $product['id'] == $id;
+        });
+        
+        $product = current($product);
+
     }
 
-    if(!$id || !isset($product)) {
+    if(!$id || !$product) {
         die('O produto selecionado não existe');
     }
 
-    require TEMPLATES . '/show.php';
+    $title = $product['name'];
+    require TEMPLATES . '/show.phtml';
 }
