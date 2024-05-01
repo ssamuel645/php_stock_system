@@ -1,9 +1,9 @@
 <?php require TEMPLATES . '/includes/header.phtml' ?>
 
-    <?php foreach(PRODUCTS as $product): ?>
-        <?php echo $product['name'] . ' - ' . $product['price']; ?>
-        <a href="<?php echo HOME ?>?url=/produto&id=<?php echo $product['id'] ?>">Detalhes</a>
-        <br>
-    <?php endforeach; ?>
-    
+<?php foreach (PRODUCTS as $product) : ?>
+    <?php echo $product['name'] . ' - ' . $product['price']; ?>
+    <a href="<?php echo HOME ?>?url=/produto&id=<?php echo $product['id'] ?>">Detalhes</a>
+    <br>
+<?php endforeach; ?>
+
 <?php require TEMPLATES . '/includes/footer.phtml' ?>
