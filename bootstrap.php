@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . "/src/functions/connection.php";
 
 // Configurações do projeto
 define('HOME', 'http://localhost:3030');

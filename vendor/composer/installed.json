@@ -1,0 +1,53 @@
+{
+    "packages": [
+        {
+            "name": "ninvfeng/mysql",
+            "version": "1.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ninvfeng/mysql.git",
+                "reference": "e6bc7cec5ac9b4d76b80fbcdc3295c8eeffab3c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ninvfeng/mysql/zipball/e6bc7cec5ac9b4d76b80fbcdc3295c8eeffab3c5",
+                "reference": "e6bc7cec5ac9b4d76b80fbcdc3295c8eeffab3c5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "time": "2018-02-03T02:56:12+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "ninvfeng\\mysql\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ninvfeng",
+                    "email": "ninvfeng@qq.com"
+                }
+            ],
+            "description": "一个简单PDO mysql数据库操作类",
+            "keywords": [
+                "mysql",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/ninvfeng/mysql/issues",
+                "source": "https://github.com/ninvfeng/mysql/tree/v1.0.0"
+            },
+            "install-path": "../ninvfeng/mysql"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

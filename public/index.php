@@ -10,16 +10,9 @@ if ($url === '/') {
 }
 
 if ($url === '/produto') {
-    $id = isset($_GET['id']) ? $_GET['id'] : '';
+    $id = $_GET['id'] ?? '';
 
     if ($id) {
-        /* foreach(PRODUCTS as $currentProduct) {
-            if($currentProduct['id'] == $id) {
-                $product = $currentProduct;
-                break;
-            }
-        } */
-
         $product = array_filter(PRODUCTS, function ($product) use ($id) {
             return $product['id'] == $id;
         });
@@ -40,7 +33,21 @@ if ($url === '/produto/novo') {
 }
 
 if ($url === '/produto/create') {
-    print '<pre>';
-    var_dump($_POST);
-    var_dump($_FILES);
+
+    $formData = $_POST;
+    $formData['price'] = str_replace(['.', ','], ['', '.'], $formData['price']);
+    
+    $sql = "INSERT INTO produtos
+  (nome, descricao, preco, status, criado_em, atualizado_em) VALUES
+  (:nome, :descricao, :preco, :status, NOW(), NOW())";
+
+    $insert = $connection->prepare($sql);
+    $insert->bindValue(":nome", $formData['name'], PDO::PARAM_STR);
+    $insert->bindValue(":descricao", $formData['description'], PDO::PARAM_STR);
+    $insert->bindValue(":preco", $formData['price'], PDO::PARAM_STR);
+    $insert->bindValue(":status", $formData['status'], PDO::PARAM_INT);
+
+    $insert->execute();
+    
+    echo $connection->lastInsertId(); // Retorna o último id inserido no banco
 }
